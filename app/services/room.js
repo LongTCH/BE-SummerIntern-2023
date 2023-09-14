@@ -104,7 +104,7 @@ export const roomService = {
     try {
       const room = await Room.findById(roomId);
       if (!room) return null;
-      if (room.selectedIssue.toString() === issueId) {
+      if (room.selectedIssue?.toString() === issueId) {
         room.selectedIssue = null;
         await room.save();
       }
